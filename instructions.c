@@ -6,7 +6,7 @@
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/01/15 14:29:11 by epascual         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:11:24 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,97 @@
 void	swap(t_list **x)
 {
 	void *tmp;
-	if ((lstlen(*x)<2) || (*x == NULL) || (*x->next == NULL))
+	if ((ft_lstsize(*x)<2) || (*x == NULL) || (*x->next == NULL))
 		return ;
 	tmp = (*x)->content;
 	(*x)->content = (*x)->next->content;
 	(*x)->next->content = tmp;
 }
+
 /*Alternativa:
  * t_list *tmp; 
  * tmp = *x; 
  * *x = (*x)->next; 
  * (*x)->next = tmp*/
-void	sx(t_list x)
+
+void	sx(t_list **x)
 {
 	char*	vn;
 
-	vn = GET_VNAME(x);
+	vn = GET_VNAME(**x);
 	swap(x);
 	ft_printf("s%s\n", vn);
 }
 
-void	ss(x,y)
+void	ss(t_list **x,t_list **y)
 {
 	swap(x);
 	swap(y);
 	ft_printf("ss\n");
 }
 
+//Un regalito TERMINAR
 void	push(x,y)
 {
-	if (llen(y)<1)
+	if (ft_lstsize(y)<1)
 		return ;
+	t_list	tmp;
+
+	tmp = x;
+	x->next = *y;
 }
+
+void	pa(x,y){push(x,y);}
+void	pb(y,x){push(x,y);}
+
 //Los primeros seran los ultimos
-void	rotate(x)
+void	rotate(t_list **x)
 {
-if (llen(x)<2)
-		return (0);
+	if (ft_lstsize(x)<2)
+		return ;
+	t_list*	uno;
+	t_list*	ulti;
+
+	uno			= *x;
+	ulti		= ft_lstlast(*x);
+	*x			= uno->next;
+	ulti->next	= uno;
 }
-//Y los ultimos seran los primeros
-void	reverse rotate(x)
+
+void	rx(x)
 {
-if (llen(x)<2)
+	char	*vn;
+
+	vn = GET_VNAME(x);
+	rotate(x);
+	ft_printf("r%s\n", vn);
+}
+
+//Y los ultimos seran los primeros TERMINAR
+void	reverse_rotate(t_list **x)
+{
+	if (ft_lstsize(x)<2)
 		return (0);
+	t_list*	uno;
+	t_list*	ulti;
+
+	uno		= *x;
+	ulti	= ft_lstlast(*x);
+
+}
+
+void	rrx(x)
+{
+	char*	vn;
+
+	vn = GET_VNAME(x);
+	reverse_rotate(x);
+	ft_printf("rr%s\n", vn);
+}
+
+void	rrr(x,y)
+{
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_printf("rrr\n");
 }
