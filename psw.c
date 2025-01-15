@@ -6,7 +6,7 @@
 /*   By: epascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:39:02 by epascual          #+#    #+#             */
-/*   Updated: 2025/01/07 16:52:02 by epascual         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:09:31 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,37 +22,19 @@
 int main(int argc, char *argv[]){
 	t_list **a;
 	t_list **b;
+	t_list *tmp;
 	int i;
 
 	if (argc < 2)
 		return(1);
 	checker(argc, argv);
-	a = ft_lstnew(NULL);
-	b = ft_lstnew(NULL);
-	i = 1;
+	a = &ft_lstnew(ft_atoi(argv[1]));
+	b = &ft_lstnew(NULL);
+	i = 2;
 	while (i <= argc)
 	{
-		ft_lstadd_front(a, ft_atoi(*argv[i]));
+		tmp = ft_lstnew(ft_atoi(*argv[i]));
+		ft_lstadd_back(a, tmp);
 	}
+	return (0);
 }
-
-int	arraylen(int *a)
-{
-}
-
-int	check(int argc, char **argv)
-{
-	
-}
-//Instrucciones
-int	*sa(int *a, int *b){}
-int	*sb(int *a, int *b){}
-int	*ss(int *a, int *b){}
-int	*pa(int *a, int *b){}
-int	*pb(int *a, int *b){}
-int	*ra(int *a, int *b){}
-int	*rb(int *a, int *b){}
-int	*rr(int *a, int *b){}
-int	*rra(int *a, int *b){}
-int	*rrb(int *a, int *b){}
-int	*rrr(int *a, int *b){}

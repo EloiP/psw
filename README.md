@@ -1,1 +1,1 @@
-## Push and swap ordered arrays
+## Push and swap strictly ordered lists
