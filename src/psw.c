@@ -6,7 +6,7 @@
 /*   By: epascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:39:02 by epascual          #+#    #+#             */
-/*   Updated: 2025/01/15 14:09:31 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:58:49 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
  * No usar atoi por si letras intercaladas.
  * Necesitas una util que cuente el tamano de los arrays
  * */
-
-int main(int argc, char *argv[]){
-	t_list **a;
-	t_list **b;
-	t_list *tmp;
-	int i;
+int	main(int argc, char *argv[])
+{
+	t_list	**a;
+	t_list	**b;
+	t_list	*tmp;
+	int		i;
 
 	if (argc < 2)
-		return(1);
+		return (1);
 	checker(argc, argv);
 	a = &ft_lstnew(ft_atoi(argv[1]));
 	b = &ft_lstnew(NULL);
