@@ -6,9 +6,11 @@
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/03 11:49:01 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:40:31 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "psw.h"
 
 //El cambio es inevitable
 void	swap(t_list **x)

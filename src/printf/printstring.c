@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   printstring.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/03 13:40:07 by epascual         ###   ########.fr       */
+/*   Created: 2024/11/25 12:21:16 by epascual          #+#    #+#             */
+/*   Updated: 2024/12/10 12:51:12 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "psw.h"
+#include "ft_printf.h"
 
-int	checkorder(t_list **ord)
+int	printstring(char const *s)
 {
-	int	i;
+	int	res;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
+	res = 0;
+	if (s == NULL)
 	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
-		{
-			i = 0;
-			break ;
-		}
-		ord = &((*ord)->next);
+		res += printstring("(null)");
+		return (res);
 	}
-	return (i);
+	while (*s != 0)
+	{
+		res += printchar(*s);
+		s++;
+	}
+	return (res);
 }
-
-int	checkargs(int argc, char **argv)
-{
-		return (1);
-}
+//int main(){printstring("Comprovacion");printf("Comprovacion");}

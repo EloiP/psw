@@ -6,12 +6,12 @@
 /*   By: epascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:39:02 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/03 11:58:49 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:04:35 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/psw.h"
-#include "include/libft.h"
+#include "../include/psw.h"
+#include "../include/libft.h"
 
 /*Parece ser que sa = sb, pa = pb, ra = rb, rra = rrb
  * Has de utilizar el stack b como si fuera el temporal?
@@ -25,9 +25,11 @@ int	main(int argc, char *argv[])
 	t_list	*tmp;
 	int		i;
 
-	if (argc < 2)
+	if (!checkargs(argc, argv))
+	{
+		ft_printf("Error\n");
 		return (1);
-	checker(argc, argv);
+	}
 	a = &ft_lstnew(ft_atoi(argv[1]));
 	b = &ft_lstnew(NULL);
 	i = 2;
@@ -36,5 +38,6 @@ int	main(int argc, char *argv[])
 		tmp = ft_lstnew(ft_atoi(*argv[i]));
 		ft_lstadd_back(a, tmp);
 	}
+	//algorithm(a, b);
 	return (0);
 }
