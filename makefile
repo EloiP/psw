@@ -9,7 +9,7 @@ CFLAGS = #-Wall -Werror -Wextra
 # Directories
 SRC_DIR = src
 OBJ_DIR = obj
-LIBFT_DIR = libft
+#LIBFT_DIR = libft
 INC = Includes
 
 # Source files
@@ -23,8 +23,8 @@ NAME = push_swap
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	@make -C $(LIBFT_DIR)  # Compile the libft library
-	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -lft -I $(INC)
+	#@make -C $(LIBFT_DIR)  # Compile the libft library
+	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -l:libft.a -I $(INC)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)  # Create object directory if it doesn't exist
@@ -32,7 +32,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 clean:
 	@rm -rf $(OBJ_DIR)  # Remove object files
-	@make clean -C $(LIBFT_DIR)  # Clean libft
+	#@make clean -C $(LIBFT_DIR)  # Clean libft
 
 fclean: clean
 	@rm -f $(NAME)  # Remove the executable

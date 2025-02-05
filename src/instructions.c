@@ -6,11 +6,12 @@
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/03 13:40:31 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:38:42 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "psw.h"
+#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
 //El cambio es inevitable
 void	swap(t_list **x)
@@ -123,7 +124,7 @@ void	rrx(t_list **x)
 
 void	rrr(t_list **x, t_list **y)
 {
-	reverse_rotate(a);
-	reverse_rotate(b);
+	reverse_rotate(x);
+	reverse_rotate(y);
 	ft_printf("rrr\n");
 }

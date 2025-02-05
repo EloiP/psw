@@ -6,11 +6,11 @@
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/03 13:40:07 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:38:55 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "psw.h"
+#include "../Includes/psw.h"
 
 int	checkorder(t_list **ord)
 {

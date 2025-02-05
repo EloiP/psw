@@ -6,12 +6,12 @@
 /*   By: epascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:39:02 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/03 13:04:35 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:38:22 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/psw.h"
-#include "../include/libft.h"
+#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
 /*Parece ser que sa = sb, pa = pb, ra = rb, rra = rrb
  * Has de utilizar el stack b como si fuera el temporal?
@@ -20,23 +20,26 @@
  * */
 int	main(int argc, char *argv[])
 {
-	t_list	**a;
-	t_list	**b;
+	t_list	*a;
+	t_list	*b;
 	t_list	*tmp;
 	int		i;
+	int		c;
 
 	if (!checkargs(argc, argv))
 	{
-		ft_printf("Error\n");
+		printf("Error\n");
 		return (1);
 	}
-	a = &ft_lstnew(ft_atoi(argv[1]));
-	b = &ft_lstnew(NULL);
+	c = ft_atoi(argv[i]);
+	a = ft_lstnew(&c);
+	b = ft_lstnew(NULL);
 	i = 2;
 	while (i <= argc)
 	{
-		tmp = ft_lstnew(ft_atoi(*argv[i]));
-		ft_lstadd_back(a, tmp);
+		c = ft_atoi(argv[i]);
+				tmp = ft_lstnew(&c);
+		ft_lstadd_back(&a, tmp);
 	}
 	//algorithm(a, b);
 	return (0);
