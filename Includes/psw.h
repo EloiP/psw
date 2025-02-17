@@ -1,13 +1,20 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   psw.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 16:00:08 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/17 16:02:34 by epascual         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#define GET_VNAME(Variable) (#Variable)
+#ifndef PSW_H
+# define PSW_H
+
+# include "libft.h"
 
 int		checkorder(t_list **ord);
 int		checkargs(int argc, char **argv);
-/*int		ft_printf(char const *print, ...);
-t_list	*ft_lstnew(void	*content);
-t_list	*ft_lstadd_back(t_list **lst, t_list *new);
-int		ft_atoi(char *str);
-int		ft_lstsize(t_list *lst);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstdelone(t_list	*lst, void (*del)(void *));*/
+#endif

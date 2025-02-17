@@ -6,7 +6,7 @@
 /*   By: epascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:39:02 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/05 13:38:22 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:25:46 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,16 @@ int	main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
-	c = ft_atoi(argv[i]);
+	i = 1;
+	c = ft_atoi(argv[i++]);
 	a = ft_lstnew(&c);
 	b = ft_lstnew(NULL);
-	i = 2;
+	if (!b)
+		return (1);
 	while (i <= argc)
 	{
-		c = ft_atoi(argv[i]);
-				tmp = ft_lstnew(&c);
+		c = ft_atoi(argv[i++]);
+		tmp = ft_lstnew(&c);
 		ft_lstadd_back(&a, tmp);
 	}
 	//algorithm(a, b);

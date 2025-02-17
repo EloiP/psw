@@ -6,7 +6,7 @@
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/05 13:38:55 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:23:10 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,9 @@ int	checkorder(t_list **ord)
 
 int	checkargs(int argc, char **argv)
 {
+		if (argc < 2)
+			return (0);
+		if (!argv)
+			return (0);
 		return (1);
 }

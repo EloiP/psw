@@ -6,7 +6,7 @@
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/05 13:38:42 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:08:04 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,20 @@ void	swap(t_list **x)
  * *x = (*x)->next; 
  * (*x)->next = tmp*/
 
-void	sx(t_list **x)
+void	sa(t_list **x)
 {
 	char	*vn;
 
-	vn = GET_VNAME(**x);
 	swap(x);
-	ft_printf("s%s\n", vn);
+	ft_printf("sa\n");
+}
+
+void	sb(t_list **x)
+{
+	char	*vn;
+
+	swap(x);
+	ft_printf("sb\n");
 }
 
 void	ss(t_list **x, t_list **y)
@@ -55,22 +62,22 @@ void	push(x, y)
 
 	if (ft_lstsize(y) < 1)
 		return ;
-	vn = GET_VNAME(x);
 	tmp = (*x)->next;
 	(*x)->next = *y;
 	*y = *x;
 	*x = tmp;
-	ft_printf("p%s\n", vn);
 }
 
 void	pa(x, y)
 {
 	push(x, y);
+	ft_printf("pa\n");
 }
 
 void	pb(y, x)
 {
 	push(x, y);
+	ft_printf("pb\n");
 }
 
 //Los primeros seran los ultimos
@@ -87,13 +94,16 @@ void	rotate(t_list **x)
 	ulti->next = uno;
 }
 
-void	rx(t_list **x)
+void	ra(t_list **x)
 {
-	char	*vn;
-
-	vn = GET_VNAME(x);
 	rotate(x);
-	ft_printf("r%s\n", vn);
+	ft_printf("ra\n");
+}
+
+void	rb(t_list **x)
+{
+	rotate(x);
+	ft_printf("rb\n");
 }
 
 //Y los ultimos seran los primeros
@@ -113,13 +123,16 @@ void	reverse_rotate(t_list **x)
 	ulti->next = NULL;
 }
 
-void	rrx(t_list **x)
+void	rra(t_list **x)
 {
-	char	*vn;
-
-	vn = GET_VNAME(x);
 	reverse_rotate(x);
-	ft_printf("rr%s\n", vn);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_list **x)
+{
+	reverse_rotate(x);
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_list **x, t_list **y)

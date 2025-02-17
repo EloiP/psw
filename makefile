@@ -4,12 +4,12 @@
 CC = cc
 
 # Compiler flags
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 # Directories
 SRC_DIR = src
 OBJ_DIR = obj
-#LIBFT_DIR = libft
+LIBFT_DIR = libft
 INC = Includes
 
 # Source files
@@ -24,7 +24,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	#@make -C $(LIBFT_DIR)  # Compile the libft library
-	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -l:libft.a -I $(INC)
+	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -I $(INC) -l:libft.a
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)  # Create object directory if it doesn't exist
