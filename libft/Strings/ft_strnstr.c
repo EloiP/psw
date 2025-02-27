@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2024/08/23 10:47:47 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 19:14:07 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
-//Comprueba el orden
-int	checkorder(t_list **ord)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	n;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
+	i = 0;
+	if (*to_find == '\0')
+		return ((char *)str);
+	while (str[i])
 	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
+		n = 0;
+		while ((str[i + n] == to_find[n]) && ((i + n) < len))
 		{
-			i = 0;
-			break ;
+			if (str[i + n] == '\0')
+				return ((char *)str + i);
+			n++;
 		}
-		ord = &((*ord)->next);
+		if (to_find[n] == '\0')
+			return ((char *)str + i);
+		i++;
 	}
-	return (i);
-}
-
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
-{
-	if (argc < 2)
-		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	return (0);
 }

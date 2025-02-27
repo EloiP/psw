@@ -23,7 +23,7 @@ NAME = push_swap
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	#@make -C $(LIBFT_DIR)  # Compile the libft library
+	@make -C $(LIBFT_DIR)  # Compile the libft library
 	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -I $(INC) -l:libft.a
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
@@ -32,7 +32,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 clean:
 	@rm -rf $(OBJ_DIR)  # Remove object files
-	#@make clean -C $(LIBFT_DIR)  # Clean libft
+	@make clean -C $(LIBFT_DIR)  # Clean libft
 
 fclean: clean
 	@rm -f $(NAME)  # Remove the executable

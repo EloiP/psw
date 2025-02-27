@@ -1,12 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:12:18 by epascual         ###   ########.fr       */
+/*   Created: 2024/08/13 17:41:33 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 19:13:04 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../Includes/psw.h"
+
+#include "../Includes/libft.h"
+
+void	ft_swap(int *a, int *b)
+{
+	int	ta;
+	int	tb;
+
+	ta = *a;
+	tb = *b;
+	*a = tb;
+	*b = ta;
+}

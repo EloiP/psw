@@ -1,45 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2024/09/16 12:40:36 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 18:35:25 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
-//Comprueba el orden
-int	checkorder(t_list **ord)
+void	ft_putnbr_fd(int num, int fd)
 {
-	int	i;
-
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
+	if (num == -2147483648)
 	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
-		{
-			i = 0;
-			break ;
-		}
-		ord = &((*ord)->next);
+		ft_putstr_fd("-2147483648", fd);
 	}
-	return (i);
-}
-
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
-{
-	if (argc < 2)
-		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	else
+	{
+		if (num < 0)
+		{
+			ft_putchar_fd('-', fd);
+			num = -num;
+		}
+		if (num >= 10)
+		{
+			ft_putnbr_fd(num / 10, fd);
+		}
+		ft_putchar_fd(((num % 10) + '0'), fd);
+	}
 }

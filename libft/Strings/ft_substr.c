@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 13:46:43 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:22:22 by epascual         ###   ########.fr       */
+/*   Created: 2024/09/16 12:36:30 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 19:12:22 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
-void	algorithm(t_list *a, t_list *b)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	a->next = NULL;
-	b->next = NULL;
-	exit(0);
+	char	*res;
+	char	*st;
+
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+	{
+		len = 0;
+		start = ft_strlen(s);
+	}
+	if (ft_strlen(s + start) <= len)
+		len = ft_strlen(s + start);
+	st = (char *)s;
+	res = (char *)malloc(len + 1);
+	if (!res)
+		return (NULL);
+	ft_strlcpy(res, &st[start], len + 1);
+	return (res);
 }

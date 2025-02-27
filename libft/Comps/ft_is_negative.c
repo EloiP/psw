@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2024/08/09 19:05:19 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 18:34:27 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
-
-//Comprueba el orden
-int	checkorder(t_list **ord)
+#include "../Includes/libft.h"
+/*
+void	ft_is_negative(int num)
 {
-	int	i;
+	char	p;
+	char	n;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
+	p = 'P';
+	n = 'N';
+	if (num >= 0)
 	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
-		{
-			i = 0;
-			break ;
-		}
-		ord = &((*ord)->next);
+		write(1, &p, 1);
 	}
-	return (i);
+	else
+	{
+		write(1, &n, 1);
+	}
 }
-
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
+*/
+int	ft_is_negative(long num)
 {
-	if (argc < 2)
-		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	if (num < 0)
+		return (1);
+	return (0);
 }
+//int main(void){ft_is_negative(-12);return(0);}

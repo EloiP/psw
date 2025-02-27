@@ -1,45 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2024/09/09 18:07:39 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 18:48:15 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
-//Comprueba el orden
-int	checkorder(t_list **ord)
+int	ft_count_if(char **tab, int (*f)(char*))
 {
+	int	count;
 	int	i;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
+	count = 0;
+	i = 0;
+	while (tab[i] != 0)
 	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
+		if (f(tab[i]))
 		{
-			i = 0;
-			break ;
+			count++;
 		}
-		ord = &((*ord)->next);
+		i++;
 	}
-	return (i);
-}
-
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
-{
-	if (argc < 2)
-		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	return (count);
 }

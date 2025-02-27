@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2025/02/27 16:14:22 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/27 16:27:29 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/psw.h"
 
-//Comprueba el orden
-int	checkorder(t_list **ord)
+//Un regalito
+void	push(t_list *x, t_list *y)
 {
-	int	i;
+	t_list	*tmp;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
-	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
-		{
-			i = 0;
-			break ;
-		}
-		ord = &((*ord)->next);
-	}
-	return (i);
+	if (ft_lstsize(y) < 1)
+		return ;
+	tmp = (x)->next;
+	(x)->next = y;
+	y = x;
+	x = tmp;
 }
 
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
+void	pa(t_list *x, t_list *y)
 {
-	if (argc < 2)
-		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	push(x, y);
+	ft_printf("pa\n");
+}
+
+void	pb(t_list *y, t_list *x)
+{
+	push(x, y);
+	ft_printf("pb\n");
 }

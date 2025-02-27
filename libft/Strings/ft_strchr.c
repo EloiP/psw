@@ -1,12 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:12:18 by epascual         ###   ########.fr       */
+/*   Created: 2024/09/16 12:34:12 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 19:11:43 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../Includes/psw.h"
+
+#include "../Includes/libft.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	return (0);
+}

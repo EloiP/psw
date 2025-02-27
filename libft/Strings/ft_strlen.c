@@ -1,12 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:12:18 by epascual         ###   ########.fr       */
+/*   Created: 2024/08/13 18:22:12 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 19:05:40 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../Includes/psw.h"
+
+#include "../Includes/libft.h"
+
+unsigned long	ft_strlen(const char *str)
+{
+	unsigned long	count;
+
+	count = 0;
+	while (*str)
+	{
+		count++;
+		str++;
+	}
+	return (count);
+}

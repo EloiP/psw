@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2024/09/16 12:49:26 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 18:37:03 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
-//Comprueba el orden
-int	checkorder(t_list **ord)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
+	t_list	*res;
+	t_list	*tmp;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
+	if (!lst || !f || !del)
+		return (NULL);
+	res = 0;
+	while (lst)
 	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
+		tmp = ft_lstnew(f(lst->content));
+		if (!tmp)
 		{
-			i = 0;
-			break ;
+			ft_lstclear(&res, del);
+			return (0);
 		}
-		ord = &((*ord)->next);
+		ft_lstadd_back(&res, tmp);
+		tmp = tmp->next;
+		lst = lst->next;
 	}
-	return (i);
-}
-
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
-{
-	if (argc < 2)
-		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	return (res);
 }

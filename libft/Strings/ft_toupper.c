@@ -1,12 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:12:18 by epascual         ###   ########.fr       */
+/*   Created: 2024/08/18 18:48:17 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 19:06:04 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../Includes/psw.h"
+
+#include "../Includes/libft.h"
+
+int	ft_toupper(int str)
+{
+	if (str < 123 && str > 96)
+	{
+		str = str - 32;
+	}
+	return (str);
+}

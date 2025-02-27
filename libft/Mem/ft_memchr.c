@@ -1,45 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2024/09/16 12:35:03 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 18:38:47 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
-//Comprueba el orden
-int	checkorder(t_list **ord)
+void	*ft_memchr(const void *s, int c, unsigned long n)
 {
-	int	i;
+	unsigned long	iter;
+	void			*ns;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
+	ns = (void *)s;
+	iter = 0;
+	while (iter < n)
 	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
+		if (((unsigned char *)ns)[iter] == (unsigned char)c)
 		{
-			i = 0;
-			break ;
+			return (ns + iter);
 		}
-		ord = &((*ord)->next);
+		iter++;
 	}
-	return (i);
-}
-
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
-{
-	if (argc < 2)
-		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	return (NULL);
 }

@@ -1,45 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2025/02/27 16:14:52 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/27 16:33:40 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/psw.h"
 
-//Comprueba el orden
-int	checkorder(t_list **ord)
+//Los primeros seran los ultimos
+void	rotate(t_list **x)
 {
-	int	i;
+	t_list	*uno;
+	t_list	*ulti;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
-	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
-		{
-			i = 0;
-			break ;
-		}
-		ord = &((*ord)->next);
-	}
-	return (i);
+	if (ft_lstsize(*x) < 2)
+		return ;
+	uno = *x;
+	ulti = ft_lstlast(*x);
+	*x = uno->next;
+	ulti->next = uno;
 }
 
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
+void	ra(t_list **x)
 {
-	if (argc < 2)
-		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	rotate(x);
+	ft_printf("ra\n");
+}
+
+void	rb(t_list **x)
+{
+	rotate(x);
+	ft_printf("rb\n");
 }

@@ -1,45 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:38:55 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:17:41 by epascual         ###   ########.fr       */
+/*   Created: 2024/09/09 18:01:49 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 18:48:39 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "../Includes/libft.h"
 
-//Comprueba el orden
-int	checkorder(t_list **ord)
+int	*ft_range(int min, int max)
 {
-	int	i;
+	int	*range;
+	int	iter;
 
-	if (!ord || !*ord)
-		return (1);
-	i = 1;
-	while ((*ord)->next)
+	iter = min;
+	if (min >= max)
 	{
-		if ((*ord)->content < (*ord)->next->content)
-			i = 1;
-		else
-		{
-			i = 0;
-			break ;
-		}
-		ord = &((*ord)->next);
+		return (0);
 	}
-	return (i);
-}
-
-//Comprueba los argumentos
-int	checkargs(int argc, char **argv)
-{
-	if (argc < 2)
+	range = (int *)malloc(sizeof(int) * (max - min));
+	if (range == 0)
 		return (0);
-	if (!argv)
-		return (0);
-	return (1);
+	while (iter < max)
+	{
+		range[iter - min] = iter;
+		iter++;
+	}
+	return (range);
 }

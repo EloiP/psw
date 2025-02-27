@@ -6,12 +6,11 @@
 /*   By: epascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:39:02 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/05 17:25:46 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:18:21 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/psw.h"
-#include "../Includes/libft.h"
 
 /*Parece ser que sa = sb, pa = pb, ra = rb, rra = rrb
  * Has de utilizar el stack b como si fuera el temporal?
@@ -43,6 +42,6 @@ int	main(int argc, char *argv[])
 		tmp = ft_lstnew(&c);
 		ft_lstadd_back(&a, tmp);
 	}
-	//algorithm(a, b);
+	algorithm(a, b);
 	return (0);
 }

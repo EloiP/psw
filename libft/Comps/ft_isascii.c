@@ -1,12 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 12:16:15 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:12:18 by epascual         ###   ########.fr       */
+/*   Created: 2024/09/16 11:50:26 by epascual          #+#    #+#             */
+/*   Updated: 2025/02/11 18:33:47 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../Includes/psw.h"
+
+#include "../Includes/libft.h"
+
+int	ft_isascii(int c)
+{
+	if ((sizeof(c) == sizeof(unsigned char)) || (c >= 0 && c <= 127))
+	{
+		return (1);
+	}
+	return (0);
+}
