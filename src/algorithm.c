@@ -18,3 +18,9 @@ void	algorithm(t_list *a, t_list *b)
 	b->next = NULL;
 	exit(0);
 }
+
+void	selector(int argc, t_list **a, t_list **b)
+{
+    if (argc <= 3)
+        algorithm(*a, *b);
+}

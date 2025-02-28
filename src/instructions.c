@@ -9,4 +9,14 @@
 /*   Updated: 2025/02/27 16:12:18 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../Includes/psw.h"
+
+void	printlist(t_list *a)
+{
+	while (a->next != NULL)
+	{
+		ft_printf("%p", a->content);
+		tmp = a->next;
+	}
+}
