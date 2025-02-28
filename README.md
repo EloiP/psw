@@ -29,4 +29,4 @@ Abandone la idea de utilizar GET_VNAME para escribir si a o b.
 
 ## Fuentes
 
-Cree una carpeta con el listado.
+Cree una [carpeta](./fuentes) con el listado.
