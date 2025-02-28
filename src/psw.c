@@ -6,7 +6,7 @@
 /*   By: epascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:39:02 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/27 16:18:21 by epascual         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:57:08 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char *argv[])
 	t_list	*b;
 	t_list	*tmp;
 	int		i;
-	int		c;
+	int		*c;
 
 	if (!checkargs(argc, argv))
 	{
@@ -31,17 +31,25 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	i = 1;
-	c = ft_atoi(argv[i++]);
-	a = ft_lstnew(&c);
+	a = NULL;
 	b = ft_lstnew(NULL);
 	if (!b)
 		return (1);
-	while (i <= argc)
+	while (i < argc)
 	{
-		c = ft_atoi(argv[i++]);
-		tmp = ft_lstnew(&c);
+		c = malloc(sizeof(long));
+		*c = ft_atoi(argv[i]);
+		tmp = ft_lstnew(c);
 		ft_lstadd_back(&a, tmp);
+		i++;
 	}
-	algorithm(a, b);
+	ft_printf("Imprime a:\n");
+	ft_printlist(a);
+	int ix = checkorder(a);
+	if (ix)
+		ft_printf("Ordenado");
+	else
+		ft_printf("No ordenado");
+	//algorithm(a, b);
 	return (0);
 }

@@ -9,7 +9,7 @@ Abandone la idea de utilizar GET_VNAME para escribir si a o b.
 - [ ] Comprobador de orden
 - [x] Instrucciones
 - [ ] Algoritmo
-- [ ] Printlist
+- [x] Printlist
 
 
 ## Teoría
