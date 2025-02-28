@@ -4,11 +4,12 @@ Abandone la idea de utilizar GET_VNAME para escribir si a o b.
 #define GET_VNAME(Variable) (#Variable)
 
 ## Pendiente
-[X] Parseo
-[ ] Comprobador de orden
-[X] Instrucciones
-[ ] Algoritmo
-[ ] Printlist
+
+- [x] Parseo
+- [ ] Comprobador de orden
+- [x] Instrucciones
+- [ ] Algoritmo
+- [ ] Printlist
 
 
 ## Teoría
