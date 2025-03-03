@@ -6,7 +6,9 @@ Abandone la idea de utilizar GET_VNAME para escribir si a o b.
 ## Pendiente
 
 - [x] Parseo
+- [ ] Comprobador de tipo de dato
 - [ ] Comprobador de orden
+- [ ] Comprobador de repetición
 - [x] Instrucciones
 - [ ] Algoritmo
 - [x] Printlist

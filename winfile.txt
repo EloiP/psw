@@ -1,0 +1,9 @@
+Includes: 
+# include <windows.h> sustituye <unistd.h>
+# include <io.h> sustituye <fcntl.h>
+stdlib y stdio sirven en ambos
+
+
+compilado librerías: Ha de salir .dll
+
+compilado: gcc -Wall -Werror -Wextra -g src/algorithm.c src/check.c src/printlist.c src/psw.c src/push.c src/reverse_rotate.c src/rotate.c src/swap.c -Llibft -I Includes -l:libft.a -o push_swap.exe

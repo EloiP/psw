@@ -22,7 +22,7 @@ int	checkorder(t_list *ord)
 	i = 1;
 	while (ord->next)
 	{
-		if (ord->content < ord->next->content)
+		if ((*(long *)) (ord->content) < ((*(long *))(ord->next->content)))
 			i += 1;
 		else
 		{
