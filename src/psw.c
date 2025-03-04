@@ -6,7 +6,7 @@
 /*   By: epascual <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 13:39:02 by epascual          #+#    #+#             */
-/*   Updated: 2025/02/28 14:57:08 by epascual         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:28:23 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ int	main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+	/*if (norep(argv, argc))
+		ft_printf("No repetidos\n");
+	else
+		ft_printf("Repetidos\n");*/
 	i = 1;
 	a = NULL;
 	b = ft_lstnew(NULL);
@@ -43,13 +47,17 @@ int	main(int argc, char *argv[])
 		ft_lstadd_back(&a, tmp);
 		i++;
 	}
-	ft_printf("Imprime a:\n");
-	ft_printlist(a);
-	int ix = checkorder(a);
+	if (checknum(argc, argv) == 0)
+		ft_printf("No nums");
+	else
+		ft_printf("All nums");
+	//ft_printf("Imprime a:\n");
+	//ft_printlist(a);
+	/*int ix = checkorder(a);
 	if (ix)
 		ft_printf("Ordenado");
 	else
 		ft_printf("No ordenado");
-	//algorithm(a, b);
+	//algorithm(a, b);*/
 	return (0);
 }

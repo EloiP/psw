@@ -21,11 +21,10 @@
 #  define BUFFER_SIZE 42
 # endif
 //includes
-# include <stdio.h> //sirve en win y posix
-# include <unistd.h> //posix
-# include <fcntl.h> //posix
-# include <stdlib.h> //sirve en win y posix
-
+# include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
 //structs and typedefs
 //typedef unsigned long	size_t;
 
