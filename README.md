@@ -30,7 +30,8 @@
 - stdlib -> exit, malloc, free
 
 ## Ideas abandonadas
-\Utilizar GET_VNAME para escribir si a o b.
+Utilizar GET_VNAME para escribir si a o b.
+
 \#define GET_VNAME(Variable) (#Variable)
 ## Añadidos a libft
 - ft_lstalast: Devuelve la penultima lista.
