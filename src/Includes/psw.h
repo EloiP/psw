@@ -13,7 +13,7 @@
 #ifndef PSW_H
 # define PSW_H
 
-# include "libft.h"
+# include "../../libft/Includes/libft.h"
 
 //checks
 int		checkorder(t_list *ord);

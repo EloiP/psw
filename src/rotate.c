@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "Includes/psw.h"
 
 //Los primeros seran los ultimos
 void	rotate(t_list **x)

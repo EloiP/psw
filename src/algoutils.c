@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "Includes/psw.h"
 
 int	maxlst(t_list *lst)
 {

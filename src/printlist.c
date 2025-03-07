@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "Includes/psw.h"
 
 void	ft_printlist(t_list *a)
 {

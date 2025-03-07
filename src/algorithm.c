@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "./Includes/psw.h"
 
 void	algorithm(t_list *a, t_list *b)
 {

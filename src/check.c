@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "Includes/psw.h"
 
 //Comprueba el orden
 int	checkorder(t_list *ord)

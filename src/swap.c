@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "Includes/psw.h"
 
 //El cambio es inevitable
 void	swap(t_list **x)

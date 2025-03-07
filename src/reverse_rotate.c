@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "Includes/psw.h"
 
 //Y los ultimos seran los primeros
 void	reverse_rotate(t_list **x)

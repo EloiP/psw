@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "Includes/psw.h"
 
 /*Parece ser que sa = sb, pa = pb, ra = rb, rra = rrb
  * Has de utilizar el stack b como si fuera el temporal?
