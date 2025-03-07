@@ -1,8 +1,5 @@
 # Push and swap strictly ordered lists
 
-Abandone la idea de utilizar GET_VNAME para escribir si a o b.
-#define GET_VNAME(Variable) (#Variable)
-
 ## Pendiente
 
 - [x] Parseo
@@ -28,6 +25,15 @@ Abandone la idea de utilizar GET_VNAME para escribir si a o b.
 - exit
 
 ## Librerias
+
+- unistd -> read, write
+- stdlib -> exit, malloc, free
+
+## Ideas abandonadas
+\Utilizar GET_VNAME para escribir si a o b.
+\#define GET_VNAME(Variable) (#Variable)
+## Añadidos a libft
+- ft_lstalast: Devuelve la penultima lista.
 
 ## Fuentes
 
