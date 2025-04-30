@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   sortone.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 13:46:43 by epascual          #+#    #+#             */
-/*   Updated: 2025/04/30 16:56:57 by epascual         ###   ########.fr       */
+/*   Created: 2025/04/30 16:49:48 by epascual          #+#    #+#             */
+/*   Updated: 2025/04/30 16:56:40 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Includes/psw.h"
 
-void	algorithm(t_list *a, t_list *b)
+void	sortdos(t_list *a)
 {
-	a->next = NULL;
-	b->next = NULL;
-	int num;
-
-	num = ft_lstsize(a);
-	if (num==2)
-		sortdos(a);
-	if (num==3)
-		sorttres(a);
-	exit(0);
+	if (a->content > a->next->content)
+		sa(a);
 }
 
-void	selector(int argc, t_list **a, t_list **b)
+void	sorttres(t_list *a)
 {
-    if (argc <= 3)
-        algorithm(*a, *b);
+	if (a->content > a->next->content)
+		sa(a);
 }
