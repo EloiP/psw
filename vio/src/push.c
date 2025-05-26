@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sortone.c                                          :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epascual <epascual@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 16:49:48 by epascual          #+#    #+#             */
-/*   Updated: 2025/05/10 11:04:19 by epascual42       ###   ########.fr       */
+/*   Created: 2025/02/27 16:14:22 by epascual          #+#    #+#             */
+/*   Updated: 2025/05/11 14:53:21 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/psw.h"
 
-void	sortdos(t_list *a)
+//Un regalito
+void	push(t_list **x, t_list **y)
 {
-	if (a->content > a->next->content)
-		sa(a);
+	t_list	*tmp;
+
+	if (!x || !*x)
+		return ;
+	if (ft_lstsize(*y) < 1)
+		return ;
+	tmp = *x;
+	*x = (*x)->next;
+	tmp->next = *y;
+	*y = tmp;
 }
 
-void	sorttres(t_list *a)
+void	pa(t_list **x, t_list **y)
 {
-	if (a->content > a->next->content)
-		sa(a);
+	push(x, y);
+	ft_printf("pa\n");
+}
+
+void	pb(t_list **y, t_list **x)
+{
+	push(x, y);
+	ft_printf("pb\n");
 }

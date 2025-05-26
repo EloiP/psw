@@ -57,9 +57,7 @@ SRCS = \
 	Arrays/ft_foreach.c \
 	Arrays/ft_range.c \
     Gnl/get_next_line.c \
-    Gnl/get_next_line_utils.c \
     Gnl/get_next_line_bonus.c \
-    Gnl/get_next_line_utils_bonus.c \
     Printf/ft_printf.c \
     Printf/printnum.c \
     Printf/printstring.c \
