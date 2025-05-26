@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:19:15 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/13 16:35:49 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/05/26 20:00:26 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ void	radix_sort(t_list **a, t_list **b)
 	while (i < max_bits)
 	{
 		radix_pass(a, b, i, size);
-		while (*b)
+		while (*b)//No estoy seguro de esta parte
+		{
 			pa(a, b);
+			b = &((*b)->next);
+		}
 		if (checkorder(*a))
 			break ;
 		i++;
@@ -45,7 +48,7 @@ Realiza una pasada de radix bit a bit sobre el stack 'a'
 En esta pasada, mira el bit i-ésimo de cada número y lo manda a
 'b' si es 0, o lo rota si es 1
 */
-void	radix_pass(t_list **a, t_list **b, int i, int size)
+void	radix_pass(t_list **a, t_list **b, int i, int size)//Aqui ha de haber algun problema
 {
 	int		j;
 	t_list	*node;
@@ -54,7 +57,7 @@ void	radix_pass(t_list **a, t_list **b, int i, int size)
 	while (j < size)
 	{
 		node = *a;
-		if (((*(int *)node->content >> i) & 1) == 0)
+		if (((*(int *)node->content >> i) /*& 1*/) == 0)//WTF, ese &1 es useless
 			pb(a, b);
 		else
 			ra(a);

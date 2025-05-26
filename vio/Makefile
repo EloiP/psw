@@ -6,7 +6,7 @@
 #    By: avelandr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 20:20:08 by avelandr          #+#    #+#              #
-#    Updated: 2025/05/26 14:53:58 by epascual42       ###   ########.fr        #
+#    Updated: 2025/05/26 19:38:20 by epascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ $(INC_DIR):
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c Makefile
 	@mkdir -p $(OBJ_DIR)  # Create object directory if it doesn't exist
 	@mkdir -p $(DEPS_DIR)  # Create dependencies directory if it doesn't exist
-	$(CC) $(CFLAGS) -c $< -o $@ -MD -MF $(DEPS_DIR)/$*.d
+	$(CC) $(CFLAGS) -c $< -o $@ -MF $(DEPS_DIR)/$*.d
 
 # Include dependency files
 -include $(DEP_FILES)
