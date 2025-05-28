@@ -133,7 +133,7 @@ $P 5 4 3 1 2
 $P 5 4 3 2 1
 status=$?
 if [ $status -eq 0 ]; then
-    echo -e "$GREEN Ya 0 y 1 args correcto"
+    echo -e "$GREEN Ya 5 args correcto"
 else
     echo -e "$RED No ordenados  error: $status."
 fi
