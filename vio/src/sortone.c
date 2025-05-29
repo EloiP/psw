@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:07:25 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/28 15:26:22 by epascual         ###   ########.fr       */
+/*   Updated: 2025/05/28 20:27:58 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,9 @@ void	sorttres(t_list *a)
 		rra(&a);
 	}
 	else if (first > third && second < third)
-	{
 		ra(&a);
-	}
 	else if (first < second && first > third)
-	{
 		rra(&a);
-	}
 	else if (first < second && second > third)
 	{
 		sa(&a);
@@ -52,30 +48,29 @@ void	sorttres(t_list *a)
 void	sort_four(t_stacks *s)
 {
 	while (*(int *)(s->a->content) != minlst(s->a))
-		{
-			if (get_pos(s->a, minlst(s->a)) <= ft_lstsize(s->a) / 2)
-				ra(&s->a);
-			else
-				rra(&s->a);
-		}
-		pb(&s->a, &s->b);
-		sorttres(s->a);
-		pa(&s->a, &s->b);
+	{
+		if (get_pos(s->a, minlst(s->a)) <= ft_lstsize(s->a) / 2)
+			ra(&s->a);
+		else
+			rra(&s->a);
+	}
+	pb(&s->a, &s->b);
+	sorttres(s->a);
+	pa(&s->a, &s->b);
 }
 
 void	sort_five(t_stacks *s)
 {
-		while (*(int *)(s->a->content) != minlst(s->a))
-			ra(&s->a);
-		pb(&s->a, &s->b);
-		while (*(int *)(s->a->content) != minlst(s->a))
-			ra(&s->a);
-		pb(&s->a, &s->b);
-		sorttres(s->a);
-		pa(&s->a, &s->b);
-		pa(&s->a, &s->b);
+	while (*(int *)(s->a->content) != minlst(s->a))
+		ra(&s->a);
+	pb(&s->a, &s->b);
+	while (*(int *)(s->a->content) != minlst(s->a))
+		ra(&s->a);
+	pb(&s->a, &s->b);
+	sorttres(s->a);
+	pa(&s->a, &s->b);
+	pa(&s->a, &s->b);
 }
-
 
 void	selector(t_stacks *stacks)
 {

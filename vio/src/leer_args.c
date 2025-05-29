@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 01:25:34 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/21 13:16:57 by epascual         ###   ########.fr       */
+/*   Updated: 2025/05/28 20:29:39 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ t_stacks	init_stacks(int *nums, int size)
 	return (s);
 }
 
+// entonces este es innecesario?
+/*
 void	liberar_array(char **array)
 {
 	int	i;
@@ -75,7 +77,7 @@ void	liberar_array(char **array)
 	}
 	free(array);
 }
-
+*/
 void	free_stacks(t_stacks *s)
 {
 	t_list	*t;
@@ -104,8 +106,8 @@ void	free_stacks(t_stacks *s)
 }
 
 /*
- Reserva memoria para el array y parsea argv con atoi
-*/
+   Reserva memoria para el array y parsea argv con atoi
+ */
 int	*list_nums(char **argv, int count)
 {
 	int	*nums;

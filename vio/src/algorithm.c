@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:19:15 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/13 16:35:49 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/05/28 20:24:34 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	radix_sort(t_list **a, t_list **b)
 }
 
 /*
-Realiza una pasada de radix bit a bit sobre el stack 'a'
-En esta pasada, mira el bit i-ésimo de cada número y lo manda a
-'b' si es 0, o lo rota si es 1
-*/
+   Realiza una pasada de radix bit a bit sobre el stack 'a'
+   En esta pasada, mira el bit i-ésimo de cada número y lo manda a
+   'b' si es 0, o lo rota si es 1
+ */
 void	radix_pass(t_list **a, t_list **b, int i, int size)
 {
 	int		j;

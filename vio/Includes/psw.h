@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:54:43 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/16 15:45:33 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/05/28 20:29:04 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_stacks	init_stacks(int *nums, int size);
 t_list		*new_stack_node(int n);
 void		free_stacks(t_stacks *s);
 void		liberar_array(char **array);
-int 		*list_nums(char **argv, int count);
+int		*list_nums(char **argv, int count);
 
 /*	MOVIMIENTOS	*/
 
