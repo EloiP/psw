@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:19:15 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/28 20:24:34 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/05/30 12:32:00 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,26 @@
    - index_stack(stacks->a):  primero convertimos los valores a índices
    - radix_sort(&stacks->a, &stacks->b): luego aplicamos radix sort 
  */
+/* Mentira, no es radixsort, es una funcion de testeo muajajajjahahaha
+void	radix_sort(t_list **a, t_list **b)
+{
+	ft_printlist(*a);
+	ft_printf("Prueba ra:");
+	ra(a);
+	ft_printlist(*a);
+	ft_printf("Prueba sa:");
+	sa(a);
+	ft_printlist(*a);
+	ft_printf("Prueba rra:");
+	rra(a);
+	ft_printlist(*a);
+	ft_printf("Prueba pa:");
+	pa(a, b);
+	ft_printf("a:");
+	ft_printlist(*a);
+	ft_printf("b:");
+	ft_printlist(*b);
+}*/
 void	radix_sort(t_list **a, t_list **b)
 {
 	int	max_bits;

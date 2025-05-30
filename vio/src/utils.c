@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:17:52 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/21 13:19:48 by epascual         ###   ########.fr       */
+/*   Updated: 2025/05/30 12:18:45 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	minlst(t_list *lst)
 	}
 	return (ret);
 }
-/*
 void	ft_printlist(t_list *a)
 {
 	int	tmp;
@@ -39,7 +38,6 @@ void	ft_printlist(t_list *a)
 		a = a->next;
 	}
 }
-*/
 
 int	get_index(int *arr, int size, int val)
 {
