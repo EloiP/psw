@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 15:15:38 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/28 15:18:02 by epascual         ###   ########.fr       */
+/*   Updated: 2025/06/01 21:44:50 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,11 @@ int	main(int argc, char *argv[])
 	{
 		ft_printf("Error\n");
 		free(nums);
+		free_stacks(&s); // esto faltaba!!!
 		return (1);
 	}
 	selector(&s);
-	free(nums);
 	free_stacks(&s);
+        free(nums);
 	return (0);
 }

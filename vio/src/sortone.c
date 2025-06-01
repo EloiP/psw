@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:07:25 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/28 20:27:58 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/01 22:49:27 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sortdos(t_list *a)
 	if (*(int *)(a->content) > *(int *)(a->next->content))
 		sa(&a);
 }
-
+/*
 void	sorttres(t_list *a)
 {
 	int	first;
@@ -44,6 +44,35 @@ void	sorttres(t_list *a)
 		ra(&a);
 	}
 }
+*/
+
+void	sorttres(t_list **a) // Cambio a t_list **a
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = *(int *)(*a)->content; // Acceder a *a
+	second = *(int *)(*a)->next->content; // Acceder a *a
+	third = *(int *)(*a)->next->next->content; // Acceder a *a
+
+	if (first > second && first < third)
+		sa(a); // Pasar a directamente
+	else if (first > second && second > third)
+	{
+		sa(a); // Pasar a directamente
+		rra(a); // Pasar a directamente
+	}
+	else if (first > third && second < third)
+		ra(a); // Pasar a directamente
+	else if (first < second && first > third)
+		rra(a); // Pasar a directamente
+	else if (first < second && second > third)
+	{
+		sa(a); // Pasar a directamente
+		ra(a); // Pasar a directamente
+	}
+}
 
 void	sort_four(t_stacks *s)
 {
@@ -55,7 +84,7 @@ void	sort_four(t_stacks *s)
 			rra(&s->a);
 	}
 	pb(&s->a, &s->b);
-	sorttres(s->a);
+	sorttres(&s->a);
 	pa(&s->a, &s->b);
 }
 
@@ -67,7 +96,7 @@ void	sort_five(t_stacks *s)
 	while (*(int *)(s->a->content) != minlst(s->a))
 		ra(&s->a);
 	pb(&s->a, &s->b);
-	sorttres(s->a);
+	sorttres(&s->a);
 	pa(&s->a, &s->b);
 	pa(&s->a, &s->b);
 }
@@ -82,7 +111,7 @@ void	selector(t_stacks *stacks)
 	if (size == 2)
 		sortdos(stacks->a);
 	if (size == 3)
-		sorttres(stacks->a);
+		sorttres(&stacks->a);
 	else if (size == 4)
 		sort_four(stacks);
 	else if (size == 5)

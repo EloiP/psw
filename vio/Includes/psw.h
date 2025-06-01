@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:54:43 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/30 12:18:34 by epascual         ###   ########.fr       */
+/*   Updated: 2025/06/01 22:47:36 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int			norep(char **argv, int argc);
 int			checknum(int argc, char **argv);
 
 // algorithm.c
-void		radix_sort(t_list **a, t_list **b);
+void    radix_sort(t_list **a, t_list **b);
 void		radix_pass(t_list **a, t_list **b, int i, int size);
 void		index_stack(t_list *a);
 int			*list2array(t_list *a, int size);
@@ -44,7 +44,7 @@ void		sort_array(int *arr, int size);
 
 // sortone.c 
 void		sortdos(t_list *a);
-void		sorttres(t_list *a);
+void		sorttres(t_list **a);
 void		sort_four_or_five(t_stacks *s);
 void		selector(t_stacks *stacks);
 

@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:19:15 by avelandr          #+#    #+#             */
-/*   Updated: 2025/05/30 12:32:00 by epascual         ###   ########.fr       */
+/*   Updated: 2025/06/01 22:44:42 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,45 @@ void	radix_sort(t_list **a, t_list **b)
 }*/
 void	radix_sort(t_list **a, t_list **b)
 {
-	int	max_bits;
-	int	size;
 	int	i;
+	int	size;
+	int	max_bits;
+	int	max_num;
 
-	if (checkorder(*a))
-		return ;
 	size = ft_lstsize(*a);
+	max_num = size - 1; // El número más grande después de la indexación es size - 1
 	max_bits = 0;
-	while ((size - 1) >> max_bits)
-		max_bits++;
+	if (max_num == 0)
+		max_bits = 1;
+	else
+	{
+		while ((max_num >> max_bits) != 0)
+			max_bits++;
+	}
+
 	i = 0;
 	while (i < max_bits)
 	{
-		radix_pass(a, b, i, size);
-		while (*b)
+		int j = 0;
+		while (j < size)
+		{
+			// Asegúrate de que el stack 'a' no esté vacío antes de acceder a *a
+			if (*a == NULL) // Esto debería ser un caso imposible si size es correcto
+				break;
+
+			if (((*(int *)(*a)->content >> i) & 1) == 0) // Si el bit actual es 0
+				pb(a, b); // Mueve a 'b'
+			else
+				ra(a); // Rota 'a'
+			j++;
+		}
+		// Después de procesar todos los elementos para el bit actual,
+		// mueve todos los elementos de 'b' de nuevo a 'a'
+		while (*b != NULL)
 			pa(a, b);
-		if (checkorder(*a))
-			break ;
 		i++;
 	}
-}
-
-/*
+}/*
    Realiza una pasada de radix bit a bit sobre el stack 'a'
    En esta pasada, mira el bit i-ésimo de cada número y lo manda a
    'b' si es 0, o lo rota si es 1
@@ -112,10 +128,8 @@ void	index_stack(t_list *a)
 		*num = indice;
 		aux = aux->next;
 	}
-	free(arr);
-}
-
-// Parsea a integers todos los elementos de la lista
+	free(arr); // Liberar el array después de usarlo
+}// Parsea a integers todos los elementos de la lista
 
 int	*list2array(t_list *a, int size)
 {
