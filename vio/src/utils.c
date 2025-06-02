@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:17:52 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/01 21:04:23 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/02 21:42:58 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	minlst(t_list *lst)
 	}
 	return (ret);
 }
+
 void	ft_printlist(t_list *a)
 {
 	int	tmp;

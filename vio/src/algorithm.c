@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:19:15 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/02 18:11:02 by epascual         ###   ########.fr       */
+/*   Updated: 2025/06/02 22:41:38 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,76 +16,49 @@
    - index_stack(stacks->a):  primero convertimos los valores a índices
    - radix_sort(&stacks->a, &stacks->b): luego aplicamos radix sort 
  */
-// Mentira, no es radixsort, es una funcion de testeo muajajajjahahaha
-/*void	radix_sort(t_list **a, t_list **b)
-{
-	ft_printlist(*a);
-	ft_printf("Prueba ra:");
-	ra(a);
-	ft_printlist(*a);
-	ft_printf("Prueba sa:");
-	sa(a);
-	ft_printlist(*a);
-	ft_printf("Prueba rra:");
-	rra(a);
-	ft_printlist(*a);
-	ft_printf("Prueba pa:");
-	pa(a, b);
-	ft_printf("a:");
-	ft_printlist(*a);
-	ft_printf("b:");
-	ft_printlist(*b);
-}*/
 
 void	radix_sort(t_list **a, t_list **b)
 {
 	int	i;
+	int	j;
+	int	inb;
 	int	size;
 	int	max_bits;
 	int	max_num;
 
 	size = ft_lstsize(*a);
-	max_num = size - 1; // El número más grande después de la indexación es size - 1
+	max_num = size - 1;
 	max_bits = 0;
 	if (max_num == 0)
 		max_bits = 1;
 	else
-	{
 		while ((max_num >> max_bits) != 0)
 			max_bits++;
-	}
-
 	i = 0;
 	while (i < max_bits)
 	{
-		int j = 0;
-		int inb = 0;
+		j = 0;
+		inb = 0;
 		while (j < size)
 		{
-			// Asegúrate de que el stack 'a' no esté vacío antes de acceder a *a
-			if (*a == NULL) // Esto debería ser un caso imposible si size es correcto
-				break;
-
-			if (((*(int *)(*a)->content >> i) & 1) == 0) // Si el bit actual es 0
-			{	pb(a, b); // Mueve a 'b'
-				inb++;			  
-			 }
+			if (*a == NULL)
+				break ;
+			if (((*(int *)(*a)->content >> i) & 1) == 0)
+			{
+				pb(a, b);
+				inb++;
+			}
 			else
-				ra(a); // Rota 'a'
+				ra(a);
 			j++;
 		}
-		// Después de procesar todos los elementos para el bit actual,
-		// mueve todos los elementos de 'b' de nuevo a 'a'
 		j = 0;
-		while (j++ < inb/*(*b)->content !=NULL*/)
-		{
+		while (j++ < inb)
 			pa(a, b);
-		//	printf("a\t%p: %p with value %i\n", *a, (*a)->content, *(int *)(*a)->content);
-		//	printf("b\t%p: %p with value %i\n", *b, (*b)->content, *(int *)(*b)->content);
-		}
 		i++;
 	}
 }
+
 /*
    Realiza una pasada de radix bit a bit sobre el stack 'a'
    En esta pasada, mira el bit i-ésimo de cada número y lo manda a
@@ -138,8 +111,8 @@ void	index_stack(t_list *a)
 		*num = indice;
 		aux = aux->next;
 	}
-	free(arr); // Liberar el array después de usarlo
-}// Parsea a integers todos los elementos de la lista
+	free(arr);
+}
 
 int	*list2array(t_list *a, int size)
 {

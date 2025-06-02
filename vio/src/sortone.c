@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:07:25 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/01 22:49:27 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/02 21:42:05 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,60 +17,31 @@ void	sortdos(t_list *a)
 	if (*(int *)(a->content) > *(int *)(a->next->content))
 		sa(&a);
 }
-/*
-void	sorttres(t_list *a)
+
+void	sorttres(t_list **a)
 {
 	int	first;
 	int	second;
 	int	third;
 
-	first = *(int *)(a->content);
-	second = *(int *)(a->next->content);
-	third = *(int *)(a->next->next->content);
+	first = *(int *)(*a)->content;
+	second = *(int *)(*a)->next->content;
+	third = *(int *)(*a)->next->next->content;
 	if (first > second && first < third)
-		sa(&a);
+		sa(a);
 	else if (first > second && second > third)
 	{
-		sa(&a);
-		rra(&a);
+		sa(a);
+		rra(a);
 	}
 	else if (first > third && second < third)
-		ra(&a);
+		ra(a);
 	else if (first < second && first > third)
-		rra(&a);
+		rra(a);
 	else if (first < second && second > third)
 	{
-		sa(&a);
-		ra(&a);
-	}
-}
-*/
-
-void	sorttres(t_list **a) // Cambio a t_list **a
-{
-	int	first;
-	int	second;
-	int	third;
-
-	first = *(int *)(*a)->content; // Acceder a *a
-	second = *(int *)(*a)->next->content; // Acceder a *a
-	third = *(int *)(*a)->next->next->content; // Acceder a *a
-
-	if (first > second && first < third)
-		sa(a); // Pasar a directamente
-	else if (first > second && second > third)
-	{
-		sa(a); // Pasar a directamente
-		rra(a); // Pasar a directamente
-	}
-	else if (first > third && second < third)
-		ra(a); // Pasar a directamente
-	else if (first < second && first > third)
-		rra(a); // Pasar a directamente
-	else if (first < second && second > third)
-	{
-		sa(a); // Pasar a directamente
-		ra(a); // Pasar a directamente
+		sa(a);
+		ra(a);
 	}
 }
 
