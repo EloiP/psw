@@ -6,7 +6,7 @@
 #    By: avelandr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/01 22:06:43 by avelandr          #+#    #+#              #
-#    Updated: 2025/06/01 22:38:02 by avelandr         ###   ########.fr        #
+#    Updated: 2025/06/02 18:20:21 by epascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ CLIB = .a
 
 # Executable name
 NAME = push_swap
-TESTVALUES = 1 3 2 # Puedes cambiar estos valores para tus pruebas
+TESTVALUES = 1 3 2 -12 31 32425 1314 121 8376418419# Puedes cambiar estos valores para tus pruebas
 
 # Rules
 all: $(NAME)
@@ -57,7 +57,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c Makefile
 	@mkdir -p $(OBJ_DIR)  # Create object directory if it doesn't exist
 	@mkdir -p $(DEPS_DIR)  # Create dependencies directory if it doesn't exist
 	# Usa CFLAGS para compilar los archivos .c
-	$(CC) $(CFLAGS) -c $< -o $@ -MD -MF $(DEPS_DIR)/$*.d
+	$(CC) $(CFLAGS) -c $< -o $@ -MD -MF $(DEPS_DIR)/$*.d -I $(INC_DIR)
 
 # Include dependency files
 -include $(DEP_FILES)

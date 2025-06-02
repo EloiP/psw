@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:19:15 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/01 22:44:42 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/02 18:11:02 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
    - index_stack(stacks->a):  primero convertimos los valores a índices
    - radix_sort(&stacks->a, &stacks->b): luego aplicamos radix sort 
  */
-/* Mentira, no es radixsort, es una funcion de testeo muajajajjahahaha
-void	radix_sort(t_list **a, t_list **b)
+// Mentira, no es radixsort, es una funcion de testeo muajajajjahahaha
+/*void	radix_sort(t_list **a, t_list **b)
 {
 	ft_printlist(*a);
 	ft_printf("Prueba ra:");
@@ -36,6 +36,7 @@ void	radix_sort(t_list **a, t_list **b)
 	ft_printf("b:");
 	ft_printlist(*b);
 }*/
+
 void	radix_sort(t_list **a, t_list **b)
 {
 	int	i;
@@ -58,6 +59,7 @@ void	radix_sort(t_list **a, t_list **b)
 	while (i < max_bits)
 	{
 		int j = 0;
+		int inb = 0;
 		while (j < size)
 		{
 			// Asegúrate de que el stack 'a' no esté vacío antes de acceder a *a
@@ -65,18 +67,26 @@ void	radix_sort(t_list **a, t_list **b)
 				break;
 
 			if (((*(int *)(*a)->content >> i) & 1) == 0) // Si el bit actual es 0
-				pb(a, b); // Mueve a 'b'
+			{	pb(a, b); // Mueve a 'b'
+				inb++;			  
+			 }
 			else
 				ra(a); // Rota 'a'
 			j++;
 		}
 		// Después de procesar todos los elementos para el bit actual,
 		// mueve todos los elementos de 'b' de nuevo a 'a'
-		while (*b != NULL)
+		j = 0;
+		while (j++ < inb/*(*b)->content !=NULL*/)
+		{
 			pa(a, b);
+		//	printf("a\t%p: %p with value %i\n", *a, (*a)->content, *(int *)(*a)->content);
+		//	printf("b\t%p: %p with value %i\n", *b, (*b)->content, *(int *)(*b)->content);
+		}
 		i++;
 	}
-}/*
+}
+/*
    Realiza una pasada de radix bit a bit sobre el stack 'a'
    En esta pasada, mira el bit i-ésimo de cada número y lo manda a
    'b' si es 0, o lo rota si es 1
