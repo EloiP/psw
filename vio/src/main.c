@@ -6,11 +6,11 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 15:15:38 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/02 21:44:00 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/04 21:26:11 by epascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/psw.h"
+#include "psw.h"
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
    - Verifica si hay suficientes argumentos (argc < 2).
@@ -26,28 +26,100 @@
    - Llama a selector, que probablemente contiene la lógica principal.
    - Libera la memoria de la lista de números y las pilas antes de salir.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*
+static int	ft_is_in_str(char c, char *str)
+{
+	int	i;
+
+	if (str)
+	{
+		i = 0;
+		while (str[i])
+		{
+			if (str[i] == c)
+				return (1);
+			i++;
+		}
+	}
+	return (0);
+}
+*/
+static int	ft_wordcount(char *s, char c)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (*s)
+	{
+		if (j == 0 && *s != c)
+		{
+			j = 1;
+			i++;
+		}
+		else if (j == 1 && *s == c)
+			j = 0;
+		s++;
+	}
+	return (i);
+}
+
+static void	errata(int *nums, t_stacks *s, int h)//Sale en error
+{
+	if (h > 1)
+		free_stacks(s);
+	if (h > 0)
+		free(nums);
+	ft_printf("Error\n");
+	exit(1);
+}
+
+//Libera arrays de strings
+static void	ft_free_pointstring(char **tab)
+{
+	size_t	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
 
 int	main(int argc, char *argv[])
 {
 	t_stacks	s;
 	int			*nums;
+	char		**str;
+	int			wcnt;
 
 	if (argc < 2)
 		return (0);
-	if (!checknum(argc, argv) || !norep(argv, argc))
-		return (ft_printf("Error\n"), 1);
-	nums = list_nums(argv + 1, argc - 1);
-	if (!nums)
-		return (ft_printf("Error\n"), 1);
-	s = init_stacks(nums, argc - 1);
-	if (!s.a)
+	if (argc == 2)
 	{
-		ft_printf("Error\n");
-		free(nums);
-		free_stacks(&s);
-		return (1);
+		str = ft_split(argv[1], ' ');
+		wcnt = ft_wordcount(argv[1], ' ');
+		nums = list_nums(str, wcnt);
 	}
+	else
+	{
+		str = argv;
+		wcnt = argc - 1;
+		nums = list_nums(str + 1, wcnt);
+	}
+	if (!nums)
+		errata(NULL, NULL, 0);
+	s = init_stacks(nums, wcnt);
+	if (!s.a)
+		errata(nums, &s, 2);
+	if (!checknum(wcnt, str) || !norep(str, wcnt))
+		errata(nums, &s, 2);
 	selector(&s);
+	if (argc == 2)
+		ft_free_pointstring(str);
 	free_stacks(&s);
 	free(nums);
 	return (0);

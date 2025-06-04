@@ -6,7 +6,7 @@
 #    By: avelandr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/01 22:06:43 by avelandr          #+#    #+#              #
-#    Updated: 2025/06/02 18:20:21 by epascual         ###   ########.fr        #
+#    Updated: 2025/06/04 21:02:38 by epascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CC = clang
 
 # Compiler flags for regular compilation
-CFLAGS = -Wall -Werror -Wextra -MD -MP -g
+CFLAGS = -Wall -Werror -Wextra -MD -MP -g -fsanitize=address
 
 # Compiler flags for Valgrind (without AddressSanitizer)
 CFLAGS_VALGRIND = -Wall -Werror -Wextra -MD -MP -g
