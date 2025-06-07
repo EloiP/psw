@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:54:43 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/07 17:22:10 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:25:02 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ typedef struct s_stacks
 
 typedef struct s_parsed_args
 {
-	int	*nums;
+	int		*nums;
 	char	**str;
-	int	wcnt;
-	int	is_split_allocated;
+	int		wcnt;
+	int		is_split_allocated;
 }	t_parsed_args;
 
 // utils.c
@@ -44,7 +44,7 @@ int			checkorder(t_list *ord);
 int			norep(char **argv, int argc);
 int			checknum(int argc, char **argv);
 int			ft_wordcount(char *s, char c);
-void			errata(int *nums, t_stacks *s, int h);
+void		errata(int *nums, t_stacks *s, int h);
 
 // algorithm.c
 void		radix_sort(t_list **a, t_list **b);
@@ -64,7 +64,7 @@ t_stacks	init_stacks(int *nums, int size);
 t_list		*new_stack_node(int n);
 void		free_stacks(t_stacks *s);
 void		liberar_array(char **array);
-int		*list_nums(char **argv, int count);
+int			*list_nums(char **argv, int count);
 
 /*	MOVIMIENTOS	*/
 
