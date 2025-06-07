@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:54:43 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/07 17:04:25 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:14:26 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,14 @@ int			minlst(t_list *lst);
 void		ft_printlist(t_list *a);
 int			get_index(int *arr, int size, int val);
 int			get_pos(t_list *lst, int val);
+void		process_bit_pass(t_list **a, t_list **b, int i, int size);
 
 // check.c
 int			checkorder(t_list *ord);
 int			norep(char **argv, int argc);
 int			checknum(int argc, char **argv);
+int  ft_wordcount(char *s, char c);
+void errata(int *nums, t_stacks *s, int h);
 
 // algorithm.c
 void    radix_sort(t_list **a, t_list **b);
@@ -76,10 +79,13 @@ void		push(t_list **x, t_list **y);
 void		pa(t_list **x, t_list **y);
 void		pb(t_list **y, t_list **x);
 
-// rotate.c
+// rotate.c + no quiero crear un fichero nuevo para solo dos funciones
 void		rotate(t_list **x);
 void		ra(t_list **x);
 void		rb(t_list **x);
+
+void ft_free_pointstring(char **tab);
+void handle_arguments(int argc, char *argv[], t_parsed_args *data)
 
 // reverse_rotate.c
 void		reverse_rotate(t_list **x);

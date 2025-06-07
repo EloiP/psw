@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 15:15:38 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/07 16:59:40 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:15:30 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,68 +26,6 @@
    - Llama a selector, que probablemente contiene la lógica principal.
    - Libera la memoria de la lista de números y las pilas antes de salir.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-static int	ft_wordcount(char *s, char c)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (*s)
-	{
-		if (j == 0 && *s != c)
-		{
-			j = 1;
-			i++;
-		}
-		else if (j == 1 && *s == c)
-			j = 0;
-		s++;
-	}
-	return (i);
-}
-
-static void	errata(int *nums, t_stacks *s, int h)
-{
-	if (h > 1)
-		free_stacks(s);
-	if (h > 0)
-		free(nums);
-	ft_printf("Error\n");
-	exit(1);
-}
-
-static void	ft_free_pointstring(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
-static void	handle_arguments(int argc, char *argv[], t_parsed_args *data)
-{
-	data->is_split_allocated = 0;
-	if (argc == 2)
-	{
-		data->str = ft_split(argv[1], ' ');
-		data->wcnt = ft_wordcount(argv[1], ' ');
-		data->nums = list_nums(data->str, data->wcnt);
-		data->is_split_allocated = 1;
-	}
-	else
-	{
-		data->str = argv;
-		data->wcnt = argc - 1;
-		data->nums = list_nums(data->str + 1, data->wcnt);
-	}
-}
 
 int	main(int argc, char *argv[])
 {
