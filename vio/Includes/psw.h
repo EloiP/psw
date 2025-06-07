@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:54:43 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/07 17:14:26 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:22:10 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ typedef struct s_stacks
 
 typedef struct s_parsed_args
 {
-	int     *nums;
-	char    **str;
-	int     wcnt;
-	int     is_split_allocated;
-}   t_parsed_args;
+	int	*nums;
+	char	**str;
+	int	wcnt;
+	int	is_split_allocated;
+}	t_parsed_args;
 
 // utils.c
 int			minlst(t_list *lst);
@@ -43,11 +43,11 @@ void		process_bit_pass(t_list **a, t_list **b, int i, int size);
 int			checkorder(t_list *ord);
 int			norep(char **argv, int argc);
 int			checknum(int argc, char **argv);
-int  ft_wordcount(char *s, char c);
-void errata(int *nums, t_stacks *s, int h);
+int			ft_wordcount(char *s, char c);
+void			errata(int *nums, t_stacks *s, int h);
 
 // algorithm.c
-void    radix_sort(t_list **a, t_list **b);
+void		radix_sort(t_list **a, t_list **b);
 void		radix_pass(t_list **a, t_list **b, int i, int size);
 void		index_stack(t_list *a);
 int			*list2array(t_list *a, int size);
@@ -84,8 +84,8 @@ void		rotate(t_list **x);
 void		ra(t_list **x);
 void		rb(t_list **x);
 
-void ft_free_pointstring(char **tab);
-void handle_arguments(int argc, char *argv[], t_parsed_args *data)
+void		ft_free_pointstring(char **tab);
+void		handle_arguments(int argc, char *argv[], t_parsed_args *data);
 
 // reverse_rotate.c
 void		reverse_rotate(t_list **x);

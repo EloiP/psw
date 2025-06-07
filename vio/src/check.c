@@ -6,41 +6,41 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 15:22:55 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/07 17:14:52 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:18:51 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/psw.h"
 
-int  ft_wordcount(char *s, char c)
+int	ft_wordcount(char *s, char c)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    j = 0;
-    while (*s)
-    {
-        if (j == 0 && *s != c)
-        {
-            j = 1;
-            i++;
-        }
-        else if (j == 1 && *s == c)
-            j = 0;
-        s++;
-    }
-    return (i);
+	i = 0;
+	j = 0;
+	while (*s)
+	{
+		if (j == 0 && *s != c)
+		{
+			j = 1;
+			i++;
+		}
+		else if (j == 1 && *s == c)
+			j = 0;
+		s++;
+	}
+	return (i);
 }
 
-void errata(int *nums, t_stacks *s, int h)
+void	errata(int *nums, t_stacks *s, int h)
 {
-    if (h > 1)
-        free_stacks(s);
-    if (h > 0)
-        free(nums);
-    ft_printf("Error\n");
-    exit(1);
+	if (h > 1)
+		free_stacks(s);
+	if (h > 0)
+		free(nums);
+	ft_printf("Error\n");
+	exit(1);
 }
 
 // comprueba si efectivamente la lista está ordenada
