@@ -6,7 +6,7 @@
 /*   By: avelandr <avelandr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 15:15:38 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/04 21:26:11 by epascual         ###   ########.fr       */
+/*   Updated: 2025/06/07 16:59:40 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,7 @@
    - Llama a selector, que probablemente contiene la lógica principal.
    - Libera la memoria de la lista de números y las pilas antes de salir.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/*
-static int	ft_is_in_str(char c, char *str)
-{
-	int	i;
 
-	if (str)
-	{
-		i = 0;
-		while (str[i])
-		{
-			if (str[i] == c)
-				return (1);
-			i++;
-		}
-	}
-	return (0);
-}
-*/
 static int	ft_wordcount(char *s, char c)
 {
 	int	i;
@@ -65,7 +48,7 @@ static int	ft_wordcount(char *s, char c)
 	return (i);
 }
 
-static void	errata(int *nums, t_stacks *s, int h)//Sale en error
+static void	errata(int *nums, t_stacks *s, int h)
 {
 	if (h > 1)
 		free_stacks(s);
@@ -75,7 +58,6 @@ static void	errata(int *nums, t_stacks *s, int h)//Sale en error
 	exit(1);
 }
 
-//Libera arrays de strings
 static void	ft_free_pointstring(char **tab)
 {
 	size_t	i;
@@ -89,6 +71,24 @@ static void	ft_free_pointstring(char **tab)
 	free(tab);
 }
 
+static void	handle_arguments(int argc, char *argv[], t_parsed_args *data)
+{
+	data->is_split_allocated = 0;
+	if (argc == 2)
+	{
+		data->str = ft_split(argv[1], ' ');
+		data->wcnt = ft_wordcount(argv[1], ' ');
+		data->nums = list_nums(data->str, data->wcnt);
+		data->is_split_allocated = 1;
+	}
+	else
+	{
+		data->str = argv;
+		data->wcnt = argc - 1;
+		data->nums = list_nums(data->str + 1, data->wcnt);
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stacks	s;
@@ -98,18 +98,7 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2)
 		return (0);
-	if (argc == 2)
-	{
-		str = ft_split(argv[1], ' ');
-		wcnt = ft_wordcount(argv[1], ' ');
-		nums = list_nums(str, wcnt);
-	}
-	else
-	{
-		str = argv;
-		wcnt = argc - 1;
-		nums = list_nums(str + 1, wcnt);
-	}
+	handle_arguments(argc, argv, &nums, &str, &wcnt);
 	if (!nums)
 		errata(NULL, NULL, 0);
 	s = init_stacks(nums, wcnt);

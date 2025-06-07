@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 18:19:15 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/02 22:41:38 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:04:00 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,45 +16,50 @@
    - index_stack(stacks->a):  primero convertimos los valores a índices
    - radix_sort(&stacks->a, &stacks->b): luego aplicamos radix sort 
  */
+void	process_bit_pass(t_list **a, t_list **b, int i, int size)
+{
+	int	j;
+	int	inb;
+
+	j = 0;
+	inb = 0;
+	while (j < size)
+	{
+		if (*a == NULL)
+			break ;
+		if (((*(int *)(*a)->content >> i) & 1) == 0)
+		{
+			pb(a, b);
+			inb++;
+		}
+		else
+			ra(a);
+		j++;
+	}
+	j = 0;
+	while (j++ < inb)
+		pa(a, b);
+}
 
 void	radix_sort(t_list **a, t_list **b)
 {
 	int	i;
-	int	j;
-	int	inb;
 	int	size;
 	int	max_bits;
-	int	max_num;
 
 	size = ft_lstsize(*a);
-	max_num = size - 1;
 	max_bits = 0;
-	if (max_num == 0)
+	if ((size - 1) == 0)
 		max_bits = 1;
 	else
-		while ((max_num >> max_bits) != 0)
+	{
+		while (((size - 1) >> max_bits) != 0)
 			max_bits++;
+	}
 	i = 0;
 	while (i < max_bits)
 	{
-		j = 0;
-		inb = 0;
-		while (j < size)
-		{
-			if (*a == NULL)
-				break ;
-			if (((*(int *)(*a)->content >> i) & 1) == 0)
-			{
-				pb(a, b);
-				inb++;
-			}
-			else
-				ra(a);
-			j++;
-		}
-		j = 0;
-		while (j++ < inb)
-			pa(a, b);
+		process_bit_pass(a, b, i, size);
 		i++;
 	}
 }

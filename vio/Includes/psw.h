@@ -6,7 +6,7 @@
 /*   By: avelandr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 19:54:43 by avelandr          #+#    #+#             */
-/*   Updated: 2025/06/01 22:47:36 by avelandr         ###   ########.fr       */
+/*   Updated: 2025/06/07 17:04:25 by avelandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,17 @@ typedef struct s_stacks
 	t_list	*b;
 }	t_stacks;
 
+typedef struct s_parsed_args
+{
+	int     *nums;
+	char    **str;
+	int     wcnt;
+	int     is_split_allocated;
+}   t_parsed_args;
+
 // utils.c
 int			minlst(t_list *lst);
- void		ft_printlist(t_list *a);
+void		ft_printlist(t_list *a);
 int			get_index(int *arr, int size, int val);
 int			get_pos(t_list *lst, int val);
 
